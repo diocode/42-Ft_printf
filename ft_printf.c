@@ -43,7 +43,6 @@ int	ft_printf(const char *str, ...)
 	va_list args;
 
 	va_start(args, str);
-
 	i = -1;
 	len = 0;
 	while (str[++i])

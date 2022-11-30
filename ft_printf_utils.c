@@ -6,26 +6,12 @@
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 10:20:58 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/29 14:07:30 by digoncal         ###   ########.fr       */
+/*   Updated: 2022/11/30 16:16:23 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "ft_printf.h"
-
-int	count_unbr(unsigned int nbr)
-{
-	unsigned int	len;
-
-	len = 0;
-	while (nbr >= 10)
-	{
-		nbr = nbr / 10;
-		len++;
-	}
-	len++;
-	return (len);
-}
 
 int	print_hex(unsigned int nbr, int uplow)
 {
@@ -52,28 +38,16 @@ int	print_hex(unsigned int nbr, int uplow)
 
 int	print_unbr(unsigned int nbr)
 {
-	int unsigned	tmp;
-	int				len;
-	char			*str;
-	
-	len = count_unbr(nbr);
-	if (nbr == 0)
+	int	len;
+	len = 0;
+	if (nbr >= 10)
 	{
-		ft_putchar_fd('0', 1);
-		return (len);
+		len += print_unbr(nbr / 10);
+		nbr = nbr % 10;
 	}
-	str = (char *) malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (0);
-	str[len--] = '\0';
-	tmp = nbr;
-	while (len >= 0)
-	{
-		str[len--] = (tmp % 10) + '0';
-		tmp = tmp / 10;
-	}
-	ft_putstr_fd(str, 1);
-	return (count_unbr(nbr));
+	if (nbr < 10)
+		ft_putchar_fd(nbr + '0', 1);
+	return (len + 1);	
 }
 
 int	print_nbr(int nbr)
