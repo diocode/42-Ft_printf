@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 11:39:47 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/28 10:32:02 by digoncal         ###   ########.fr       */
+/*   Created: 2022/11/29 10:23:48 by digoncal          #+#    #+#             */
+/*   Updated: 2022/11/29 14:09:54 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include <stdio.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	main(void)
-{
-	char	var = 'X';
+/*------------- Functions ---------------*/
 
-	ft_printf("ft_printf: %c\n", var);
-	printf("printf: %c\n", var);
-	
-	return (0);
-}
+int	ft_printf(const char *str, ...);
+int	count_unbr(unsigned int nbr);
+
+int	print_hex(unsigned int nbr, int uplow);
+int print_unbr(unsigned int nbr);
+int	print_nbr(int nbr);
+
+#endif

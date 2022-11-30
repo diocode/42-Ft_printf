@@ -6,44 +6,56 @@
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 13:31:12 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/28 10:35:31 by digoncal         ###   ########.fr       */
+/*   Updated: 2022/11/29 14:08:07 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include "ft_printf.h"
 
-void	print_arg(va_list args, char type)
+static int	print_arg(va_list args, char type)
 {
 	if (type == 'c')
 		ft_putchar_fd(va_arg(args, int), 1);
 	//if (type == 's')
 	//if (type == 'p')
 	if (type == 'd')
-		ft
-	//if (type == 'i')
-	//if (type == 'u')
-	//if (type == 'x')
-	//if (type == 'X')
-	//if (type == '%')
+		return(print_nbr(va_arg(args, int)));
+	if (type == 'i')
+		return(print_nbr(va_arg(args, int)));
+	if (type == 'u')
+		return (print_unbr(va_arg(args, unsigned int)));
+	if (type == 'x')
+		return (print_hex(va_arg(args, unsigned int), 1));
+	if (type == 'X')
+		return (print_hex(va_arg(args, unsigned int), 0));
+	if (type =='%')
+		ft_putchar_fd('%', 1);
+	if (type == 'c' || type == '%')
+		return (1);
+	return (0);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	int		i;
+	int		len;
 	va_list args;
 
 	va_start(args, str);
 
 	i = -1;
+	len = 0;
 	while (str[++i])
 	{
 		if (str[i] != '%')
-			ft_putchar_fd(str[i], 1);
-		else
 		{
-			print_arg(args, str[++i]);
+			ft_putchar_fd(str[i], 1);
+			len++;
 		}
+		else
+			len += print_arg(args, str[++i]);
 	}
 	va_end(args);
-	return 0;
+	return (len);
 }
