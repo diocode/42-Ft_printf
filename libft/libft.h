@@ -6,7 +6,7 @@
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:46:16 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/14 17:27:39 by digoncal         ###   ########.fr       */
+/*   Updated: 2022/12/05 09:55:23 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int		ft_memcmp(const void *str1, const void *str2, size_t n);
 int		ft_atoi(const char *nptr);
 int		ft_lstsize(t_list *lst);
 int		ft_printf(const char *str, ...);
-
 
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);

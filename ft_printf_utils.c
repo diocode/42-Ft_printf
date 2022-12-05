@@ -6,7 +6,7 @@
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 10:20:58 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/30 16:16:23 by digoncal         ###   ########.fr       */
+/*   Updated: 2022/12/05 11:00:55 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	print_hex(unsigned int nbr, int uplow)
 int	print_unbr(unsigned int nbr)
 {
 	int	len;
+
 	len = 0;
 	if (nbr >= 10)
 	{
@@ -47,7 +48,7 @@ int	print_unbr(unsigned int nbr)
 	}
 	if (nbr < 10)
 		ft_putchar_fd(nbr + '0', 1);
-	return (len + 1);	
+	return (len + 1);
 }
 
 int	print_nbr(int nbr)
@@ -67,4 +68,38 @@ int	print_nbr(int nbr)
 		len++;
 	}
 	return (len + 1);
+}
+
+int	print_str(char *str)
+{
+	int	len;
+
+	len = 0;
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (str[len])
+	{
+		write(1, &str[len], 1);
+		len++;
+	}
+	return (len);
+}
+
+int	print_pointer(unsigned long *p)
+{
+	int	len;
+
+	len = 0;
+	if (!p)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
+	else
+		len += write(1, "0x", 2);
+	len += print_adress((unsigned long) p);
+	return (len);
 }

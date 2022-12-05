@@ -6,7 +6,7 @@
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 11:39:47 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/30 09:52:39 by digoncal         ###   ########.fr       */
+/*   Updated: 2022/12/05 09:36:23 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,19 @@ int	main(void)
 	size1 = ft_printf("ft_printf: %%");
 	ft_printf(" | Size: %d\n", size1);
 	size2 = printf("OG_printf: %%");
+	printf(" | Size: %d\n\n", size2);
+
+	printf("===== [%%s] =====\n");
+	size1 = ft_printf("ft_printf: %s", "Digo");
+	ft_printf(" | Size: %d\n", size1);
+	size2 = printf("OG_printf: %s", "Digo");
+	printf(" | Size: %d\n\n", size2);
+	
+	int p[12];
+	printf("===== [%%p] =====\n");
+	size1 = ft_printf("ft_printf: %p", p);
+	ft_printf(" | Size: %d\n", size1);
+	size2 = printf("OG_printf: %p", p);
 	printf(" | Size: %d\n\n", size2);
 
 	return (0);
