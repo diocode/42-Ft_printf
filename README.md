@@ -13,7 +13,7 @@ This project is about reverse engineering and recoding the printf() function wit
 <br>
 
 ## HOW TO USE
-1º - To compile ft_printf you should run `make` in the terminal.
+To compile ft_printf you should run `make` in the terminal.
 
 <br>
 
