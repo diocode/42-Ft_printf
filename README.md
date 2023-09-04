@@ -36,7 +36,7 @@ $ ./make
 ```
 
 #### 3º - Use the program
-> After compiling you will get a `libftprintf.a` that can be implemented in your code so that you can use the `ft_printf()` function
+After compiling you will get a `libftprintf.a` that can be implemented in your code so that you can use the `ft_printf()` function
 
 <br>
 
